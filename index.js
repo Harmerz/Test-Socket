@@ -6,7 +6,7 @@ import { Server } from "socket.io";
 import cors from 'cors'
 
 const app = express();
-const server = http.createServer(app);
+
 // get our port
 const port = process.env.PORT || 8080;
 
@@ -27,12 +27,11 @@ app.use(
   })
 )
 
+const server = http.createServer(app);
 app.get("/", (req, res) => {
   res.send("Hello World");
 });
-
 const io = new Server(server);
-
 function generateData() {
     const TEAM_ID = '1009';
     const now = new Date();
