@@ -6,7 +6,8 @@ import { Server } from "socket.io";
 
 const app = express();
 const server = http.createServer(app);
-const port = 5000;
+// get our port
+const port = process.env.PORT || 8080;
 
 app.get("/", (req, res) => {
   res.send("Hello World");
